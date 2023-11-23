@@ -19,7 +19,7 @@ export const HomeLayout: FC<HomeLayoutProps> = ({products}) => {
                 <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
                     <h2 className="text-2xl font-bold tracking-tight text-gray-900">Product List</h2>
                     <button
-                        onClick={() => setOpen(!open)}
+                        onClick={() => setOpen && setOpen(!open)}
                         className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
                        Open Cart
@@ -48,7 +48,7 @@ export const HomeLayout: FC<HomeLayoutProps> = ({products}) => {
                                     </div>
                                 </Link>
                                 <button
-                                    onClick={() => addProductToCart(product)}
+                                    onClick={() => addProductToCart && addProductToCart(product)}
                                     className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                                 >
                                     Add to bag

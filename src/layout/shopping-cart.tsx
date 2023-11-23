@@ -10,7 +10,7 @@ export const ShoppingCart = () => {
 
     return (
         <Transition.Root show={open} as={Fragment}>
-            <Dialog as="div" className="relative z-10" onClose={() => setOpen(open)}>
+            <Dialog as="div" className="relative z-10" onClose={() => setOpen && open && setOpen(open)}>
                 <Transition.Child
                     as={Fragment}
                     enter="ease-in-out duration-500"
@@ -44,7 +44,7 @@ export const ShoppingCart = () => {
                                                     <button
                                                         type="button"
                                                         className="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
-                                                        onClick={() => setOpen(false)}
+                                                        onClick={() => setOpen && setOpen(false)}
                                                     >
                                                         <span className="absolute -inset-0.5" />
                                                         <span className="sr-only">Close panel</span>
@@ -115,7 +115,7 @@ export const ShoppingCart = () => {
                                                     <button
                                                         type="button"
                                                         className="font-medium text-indigo-600 hover:text-indigo-500"
-                                                        onClick={() => setOpen(false)}
+                                                        onClick={() => setOpen && setOpen(false)}
                                                     >
                                                         Continue Shopping
                                                         <span aria-hidden="true"> &rarr;</span>
