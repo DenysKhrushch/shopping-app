@@ -4,16 +4,22 @@ import {createContext, FC, ReactNode, useContext, useState} from "react";
 import {Product} from "@/interfaces/Product";
 
 interface ObserverContextProps {
-    cart?: Product[];
-    open?: boolean;
-    setOpen?: (open: boolean) => void;
-    children?: ReactNode;
-    addProductToCart?: (product: Product) => void,
-    removeProductFromCart?: (product: Product) => void,
-    clearCart?: () => void,
+    cart: Product[];
+    open: boolean;
+    setOpen: (open: boolean) => void;
+    addProductToCart: (product: Product) => void,
+    removeProductFromCart: (product: Product) => void,
+    clearCart: () => void,
 }
 
-const ObserverContext = createContext<ObserverContextProps>({});
+const ObserverContext = createContext<ObserverContextProps>({
+    cart: [],
+    open: false,
+    setOpen: () => {},
+    addProductToCart: () => {},
+    removeProductFromCart: () => {},
+    clearCart: () => {},
+});
 
 interface MyContextProviderProps {
     cart?: Product[];
@@ -32,7 +38,7 @@ export const MyContextProvider: FC<MyContextProviderProps> = ({ children }) => {
     const [open, setOpen] = useState<boolean>(false);
 
     const addProductToCart = (productToAdd: Product) => {
-console.log(productToAdd)
+
         setCart((currentCart) => {
             const isProductInCart = currentCart.some(product => product.id === productToAdd.id);
 

@@ -4,9 +4,8 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import {Product} from "@/interfaces/Product";
 import {useObserverContext} from "@/contexts/ObserverContext";
 
-
 export const ShoppingCart = () => {
-    const {cart, open, setOpen} = useObserverContext();
+    const {cart, open, setOpen, removeProductFromCart} = useObserverContext();
 
     return (
         <Transition.Root show={open} as={Fragment}>
@@ -81,6 +80,7 @@ export const ShoppingCart = () => {
                                                                         <div className="flex">
                                                                             <button
                                                                                 type="button"
+                                                                                onClick={() => removeProductFromCart(product)}
                                                                                 className="font-medium text-indigo-600 hover:text-indigo-500"
                                                                             >
                                                                                 Remove

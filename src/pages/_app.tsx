@@ -9,6 +9,6 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
       <MyContextProvider open={open} setOpen={setOpen}>
             <Component {...pageProps} />
-          </MyContextProvider>
+      </MyContextProvider>
       )
 }
