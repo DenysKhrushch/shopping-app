@@ -26,8 +26,14 @@ export const HomeLayout: FC<HomeLayoutProps> = ({products}) => {
                     </button>
                     <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                         {products.map((product) => (
-                            <>
-                                <div key={product.id} className="group relative">
+                            <div key={product.id} className="group relative">
+                                <button
+                                    onClick={() => addProductToCart(product)}
+                                    style={{position: 'absolute', zIndex: 1000, top: 0, }}
+                                    className=" flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                >
+                                    Add to bag
+                                </button>
                                     <Link href={`/product/${product.id}`}>
                                         <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                                             <img
@@ -48,13 +54,6 @@ export const HomeLayout: FC<HomeLayoutProps> = ({products}) => {
                                         </div>
                                     </Link>
                                 </div>
-                                <button
-                                    onClick={() => addProductToCart(product)}
-                                    className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                                >
-                                    Add to bag
-                                </button>
-                            </>
                         ))}
                     </div>
                 </div>
